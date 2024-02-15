@@ -46,45 +46,41 @@ const ResponsiveCarousel = () => {
   };
 
   return (
-    <div>
-      <Carousel
-        {...getCarouselProps()}
-        onChange={onChange}
-        renderArrowPrev={(onClickHandler, hasPrev) =>
-          hasPrev && (
-            <button
-              className="button"
-              style={{ left: 16 }}
-              onClick={onClickHandler}
-              aria-label="Previous Image"
-            >
-              Précédent
-            </button>
-          )
-        }
-        renderArrowNext={(onClickHandler, hasNext) =>
-          hasNext && (
-            <button
-              className="button"
-              style={{ right: 16 }}
-              onClick={onClickHandler}
-              aria-label="Next Image"
-            >
-              Suivant
-            </button>
-          )
-        }
-        aria-label="Dog Image Carousel"
-      >
-        {images.map((image, index) => {
-          return (
-            <div key={index} aria-hidden={index !== selectedIndex}>
-              {image}
-            </div>
-          );
-        })}
-      </Carousel>
-    </div>
+    <Carousel
+      {...getCarouselProps()}
+      onChange={onChange}
+      renderArrowPrev={(onClickHandler, hasPrev) =>
+        hasPrev && (
+          <button
+            className="button"
+            style={{ left: 16 }}
+            onClick={onClickHandler}
+            aria-label="Previous Image"
+          >
+            Précédent
+          </button>
+        )
+      }
+      renderArrowNext={(onClickHandler, hasNext) =>
+        hasNext && (
+          <button
+            className="button"
+            style={{ right: 16 }}
+            onClick={onClickHandler}
+            aria-label="Next Image"
+          >
+            Suivant
+          </button>
+        )
+      }
+      aria-label="Dog Image Carousel"
+    >
+      {images.map((image, index) => (
+        <div key={index} aria-hidden={index !== selectedIndex}>
+          {image}
+        </div>
+      ))}
+    </Carousel>
   );
 };
 
